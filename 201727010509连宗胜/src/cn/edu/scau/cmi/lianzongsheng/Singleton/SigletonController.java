@@ -36,11 +36,13 @@ public class SigletonController implements Initializable  {
 
 		
 	}
+	//单例模式
 	public void single_model() {
 		selected=1;
 		result.clear();
 		textarea.clear();
 	}
+	//多例模式
 	 public  void multi_model() {
 		 selected=2;
 		 result.clear();
@@ -49,6 +51,7 @@ public class SigletonController implements Initializable  {
 
 		 		
 	 }
+	 //产生实例
 	 public void product_instance() {
 		 if(selected==1) {
 			 product_single_instance();
@@ -59,12 +62,14 @@ public class SigletonController implements Initializable  {
 			 product_multi_instance();
 		 }
 	 }
+	 //产生单例实例并产生实例消息
 	private void product_single_instance() {
 		String name = textarea.textProperty().getValue();
 		Chairman man = Chairman.getInstance(name);
 		show_message(man.getInitMessage(), man.getName(), man.toString(),man.getAllInstancesName());
 		
 	}
+	 //产生多例实例并产生实例消息
 	private void product_multi_instance() {
 		String name = textarea.textProperty().getValue();
 		MultiChairman man = MultiChairman.getInstance(name);
@@ -78,6 +83,7 @@ public class SigletonController implements Initializable  {
 
 		
 	}
+	//显示消息
 	private void show_message(String message,String name,String instance,String created_instances) {
 		
 		result.appendText("创建状态："+message);
