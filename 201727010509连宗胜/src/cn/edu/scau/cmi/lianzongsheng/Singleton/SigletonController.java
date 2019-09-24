@@ -72,12 +72,12 @@ public class SigletonController implements Initializable  {
 	 //产生多例实例并产生实例消息
 	private void product_multi_instance() {
 		String name = textarea.textProperty().getValue();
-		MultiChairman man = MultiChairman.getInstance(name);
+		Marshal man = Marshal.getInstance(name);
 		if(man==null) {
-			show_message("实例已经创建满了，无法再创建了","请从已经创建的对象中获取","请从已经创建的对象中获取",MultiChairman.getAllInstancesName().toString());
+			show_message("实例已经创建满了，无法再创建了","请从已经创建的对象中获取","请从已经创建的对象中获取",Marshal.getAllInstancesName().toString());
 		}
 		else {
-			show_message(man.getInitMessage(), man.getName(), man.toString(),MultiChairman.getAllInstancesName().toString());
+			show_message(man.getInitMessage(), man.getName(), man.toString(),Marshal.getAllInstancesName().toString());
 
 		}
 
