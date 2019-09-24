@@ -38,10 +38,13 @@ public class SigletonController implements Initializable  {
 	}
 	public void single_model() {
 		selected=1;
+		result.clear();
+		textarea.clear();
 	}
 	 public  void multi_model() {
 		 selected=2;
 		 result.clear();
+		 textarea.clear();
 		 result.appendText("该模式可以创建至多10个实例\n");
 
 		 		

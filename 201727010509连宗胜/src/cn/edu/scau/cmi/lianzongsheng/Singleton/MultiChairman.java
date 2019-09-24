@@ -13,19 +13,20 @@ public class MultiChairman implements ChairmanInterface{
 
 	private MultiChairman(String name) {
 		this.own_name = name;
-		this.message = MessageFormat.format("创建成功,还可以创建%d个实例\n",instance_num);
+		this.message =MessageFormat.format("创建成功,还可以创建 {0} 个实例\n",instance_num);
 
 	}
+	//实例化
 	public static MultiChairman getInstance(String name) {
 		
-		instance_num-=1;
+		instance_num-=1;//统计已经初始化的实例
 		MultiChairman instance=null;
 		if(instance_num>0) {
 			instance = new MultiChairman(name);
 			instance_map.put(name, instance);
 			
 		}
-		else {
+		else {//对象已经满了
 			instance = instance_map.get(name);
 			message = "不好意思，对象已经创建满了";
 		}
