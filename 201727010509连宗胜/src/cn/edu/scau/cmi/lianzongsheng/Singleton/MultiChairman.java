@@ -19,17 +19,23 @@ public class MultiChairman implements ChairmanInterface{
 	//实例化
 	public static MultiChairman getInstance(String name) {
 		
-		instance_num-=1;//统计已经初始化的实例
 		MultiChairman instance=null;
-		if(instance_num>0) {
-			instance = new MultiChairman(name);
-			instance_map.put(name, instance);
-			
+		instance = instance_map.get(name);
+		if(instance==null) {
+			instance_num-=1;//统计已经初始化的实例
+			if(instance_num>0) {
+				instance = new MultiChairman(name);
+				instance_map.put(name, instance);
 		}
 		else {//对象已经满了
 			instance = instance_map.get(name);
 			message = "不好意思，对象已经创建满了";
 		}
+		}
+		else {
+			message = "实例已存在!";
+		}
+		
 		return instance;
 		
 		
