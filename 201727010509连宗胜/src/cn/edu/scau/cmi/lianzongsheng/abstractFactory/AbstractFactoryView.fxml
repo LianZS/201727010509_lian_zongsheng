@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<Pane layoutX="0.0" layoutY="0.0" prefHeight="471.0" prefWidth="548.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cn.edu.scau.cmi.lianzongsheng.abstractFactory.AbstractFactoryController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Button fx:id="product" layoutX="462.0" layoutY="53.0" mnemonicParsing="false" onAction="#productMeat" prefHeight="30.0" prefWidth="50.0" text="生产" />
+    <TextArea fx:id="result" layoutX="28.0" layoutY="137.0" minHeight="80.0" prefHeight="312.9999000000025" prefWidth="506.0" text="" />
+    <Text layoutX="23.0" layoutY="131.0" scaleX="1.3168403162754434" scaleY="0.9882250980762614" strokeType="OUTSIDE" strokeWidth="0.0" text="购买结果" />
+    <RadioButton id="1" fx:id="pork" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" selected="true" text="pork" />
+    <RadioButton id="2" fx:id="beef" layoutX="157.0" layoutY="84.0" mnemonicParsing="false" text="beef" />
+    <RadioButton id="3" fx:id="chicken" layoutX="296.0" layoutY="84.0" mnemonicParsing="false" text="chicken" />
+    <Label layoutX="14.0" layoutY="0.0" prefHeight="53.0" prefWidth="126.0" text="抽象工厂模式" textFill="#ccff00">
+      <font>
+        <Font size="18.0" />
+      </font>
+    </Label>
+    <RadioButton layoutX="14.0" selected="true" fx:id="wens" layoutY="45.0"  mnemonicParsing="false" text="Wens" />
+    <RadioButton layoutX="157.0" fx:id="tianbang" layoutY="45.0" mnemonicParsing="false" text="Tianbang" />
+    <RadioButton layoutX="293.0" fx:id="aonong" layoutY="45.0" mnemonicParsing="false" text="Aonong" />
+  </children>
+</Pane>
