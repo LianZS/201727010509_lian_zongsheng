@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
-public class  MeatFactoryClient extends Application {
+public class  SimpleFactoryClient extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
