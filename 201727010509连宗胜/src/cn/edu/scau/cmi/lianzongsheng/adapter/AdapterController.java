@@ -37,7 +37,7 @@ public class AdapterController implements Initializable {
 	}
 	public void insert() {
 		String selected = ((RadioButton)group.getSelectedToggle()).getText();
-		int stuID= Integer.valueOf(studentID.getText());
+		 int stuID= Integer.parseInt(studentID.getText());
 		String stuName = studentName.getText();
 		if(selected=="¿‡  ≈‰∆˜") {
 			AdapterOfClass adapter = new AdapterOfClass();
