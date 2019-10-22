@@ -46,9 +46,11 @@ public class ConsistentController  implements Initializable{
 		
 		
 	}
+	
 	public void addTeam() {
 		
 	}
+	
 	public void addTeamer() {
 		
 	}
