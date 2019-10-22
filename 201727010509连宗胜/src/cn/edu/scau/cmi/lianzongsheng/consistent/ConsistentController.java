@@ -108,7 +108,7 @@ public class ConsistentController  implements Initializable{
 			String teamName = team.getTeamName();
 			for(Organization person:team.getChildren()) {
 				String personName = ((Person)person).getName();
-				
+	
 				
 			}
 			
