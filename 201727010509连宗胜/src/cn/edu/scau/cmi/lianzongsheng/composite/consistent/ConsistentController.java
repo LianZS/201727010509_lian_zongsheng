@@ -85,9 +85,7 @@ public class ConsistentController  implements Initializable{
 	}
 	
 	public void addTeam() {
-		if(this.organization==null || this.safeorganization==null) {
-			addOrganization();
-		}
+		
 		String teamName = teamInput.getText();
 		if(teamName==null) {
 			return ;
@@ -99,7 +97,7 @@ public class ConsistentController  implements Initializable{
 				team = new Team();
 				team.setTeamName(teamName);
 				teamMap.put(teamName, team);
-				organization.addChild(team);
+				((Team)organization).addChild(team);
 			}
 		}
 		else {
@@ -148,8 +146,6 @@ public class ConsistentController  implements Initializable{
 				SafeTeam team = safeTeamMap.get(teamName);
 				team.addChild(p);
 			}
-
-			
 		}
 
 		show();
@@ -202,9 +198,7 @@ public class ConsistentController  implements Initializable{
 
 					if(teamer.equals(name)) {
 						needDelete=(Person) p;
-
 						break;
-							
 						}
 					}
 			t.removeChild(needDelete);
@@ -257,7 +251,10 @@ public class ConsistentController  implements Initializable{
 		}
 		String teamTree = "";
 		for(int i=0;i<teamStr.size();i++) {
+			
 				String teamName = teamStr.get(i);
+			
+
 				if(i==0) {
 					teamTree+="|-"+teamName+"---";
 
@@ -282,9 +279,7 @@ public class ConsistentController  implements Initializable{
 						int formatleng = teamName.length()+organizationStr.length()+5;
 						for(int k=0;k<formatleng;k++){
 							teamerTree+=" ";
-							
 						}
-
 					}
 					j+=1;
 					teamerTree+="|-"+personName+"\n";
@@ -292,6 +287,7 @@ public class ConsistentController  implements Initializable{
 				}
 				teamTree+=teamerTree;
 			}
+
 		return organizationStr+teamTree;
 	}
 	public String safeformatTree() {
@@ -301,7 +297,7 @@ public class ConsistentController  implements Initializable{
 		String organizationName =((SafeTeam)this.safeorganization).getName();
 		HashSet<SafeOrganization> teams = ((SafeTeam)this.safeorganization).getChildren();
 		Iterator<SafeOrganization> teamsIterator = teams.iterator();
-		organizationStr =organizationStr+((Team)this.organization).getTeamName()+"--";
+		organizationStr =organizationStr+((SafeTeam)this.safeorganization).getName()+"--";
 
 		while(teamsIterator.hasNext()) {
 			ArrayList<String> teamerStr=new ArrayList<>();
