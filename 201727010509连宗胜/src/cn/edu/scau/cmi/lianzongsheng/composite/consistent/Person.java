@@ -1,4 +1,4 @@
-package cn.edu.scau.cmi.lianzongsheng.consistent;
+package cn.edu.scau.cmi.lianzongsheng.composite.consistent;
 
 import java.util.HashSet;
 
@@ -29,6 +29,12 @@ public class Person  extends Organization{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	Organization removeChild(Organization child) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

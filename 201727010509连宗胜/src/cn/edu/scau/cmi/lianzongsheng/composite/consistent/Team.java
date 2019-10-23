@@ -1,4 +1,4 @@
-package cn.edu.scau.cmi.lianzongsheng.consistent;
+package cn.edu.scau.cmi.lianzongsheng.composite.consistent;
 
 import java.util.HashSet;
 
@@ -13,7 +13,7 @@ public class Team  extends Organization{
 	@Override
 	Organization addChild(Organization child) {
 		this.children.add(child);
-		return child;
+		return this;
 	}
 
 	@Override
@@ -27,6 +27,13 @@ public class Team  extends Organization{
 	}
 	public String getTeamName() {
 		return this.teamName;
+	}
+
+	@Override
+	Organization removeChild(Organization child) {
+		// TODO Auto-generated method stub
+		children.remove(child);
+		return this;
 	}
 	
 

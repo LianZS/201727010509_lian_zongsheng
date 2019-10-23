@@ -1,4 +1,4 @@
-package cn.edu.scau.cmi.lianzongsheng.consistent;
+package cn.edu.scau.cmi.lianzongsheng.composite.consistent;
 
 import java.util.HashSet;
 
@@ -8,6 +8,7 @@ public  abstract class Organization {
 	abstract Organization getParent();
 	abstract Organization addChild(Organization child);
 	abstract HashSet<Organization> getChildren();
+	abstract Organization removeChild(Organization child);
 	
 
 
