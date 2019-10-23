@@ -32,7 +32,7 @@ public class ConsistentController  implements Initializable{
 	@FXML
 	private TextField teamerInput;
 	@FXML
-	private TextField deleteTeameInput;
+	private TextField deleteTeamInput;
 	@FXML
 	private TextField deleteTeamerInput;
 	@FXML
@@ -85,6 +85,9 @@ public class ConsistentController  implements Initializable{
 	}
 	
 	public void addTeam() {
+		if(this.organization==null || this.safeorganization==null) {
+			addOrganization();
+		}
 		String teamName = teamInput.getText();
 		if(teamName==null) {
 			return ;
@@ -115,18 +118,7 @@ public class ConsistentController  implements Initializable{
 		
 		
 	}
-	public void remove() {
-		String teamName = teamInput.getText();
-		String personName = teamerInput.getText();
-		
-	}
-	public void removeTeam() {
-		
-	}
-	public void removeTeamer() {
-		
-	}
-	
+
 	public void addTeamer() {
 		String teamName = teamInput.getText();
 		String personName = teamerInput.getText();
@@ -166,6 +158,83 @@ public class ConsistentController  implements Initializable{
 		
 	}
 	public void show() {
+		if(consistentRadio.isSelected()) {
+			this.showTree.setText(consistentformatTree());
+
+		}
+		else {
+			this.showTree.setText(safeformatTree());
+
+		}
+		
+	}
+	public void remove() {
+		String teamName = deleteTeamInput.getText();
+		String personName = deleteTeamerInput.getText();
+		
+		if(teamName.length()==0 &&personName.length()==0)
+			return;
+		else if(teamName.length()>0 &&personName.length()==0)
+			removeTeam(teamName);
+		else if(teamName.length()>0&&personName.length()>0) 
+			removeTeamer(teamName, personName);
+		
+		
+	}
+	public void removeTeam(String team) {
+		if(consistentRadio.isSelected()) {
+			Team t = this.teamMap.get(team);
+			this.organization.removeChild(t);
+		}
+		else {
+			SafeTeam t = this.safeTeamMap.get(team);
+			((SafeTeam)this.safeorganization).remove(t);
+		}
+		show();
+	}
+	public void removeTeamer(String team,String teamer) {
+		if(consistentRadio.isSelected()) {
+			Team t = this.teamMap.get(team);
+			if(t !=null) {
+				Person needDelete=null;
+				for(Organization p:t.getChildren()) {
+					String name = ((Person)p).getName();
+					System.out.println(name);
+
+					if(teamer.equals(name)) {
+						needDelete=(Person) p;
+						System.out.println("ok");
+
+						break;
+							
+						}
+					}
+			t.removeChild(needDelete);
+
+				}
+			
+			
+		}
+		else {
+			SafePerson needDelete=null;
+			SafeTeam t = this.safeTeamMap.get(team);
+			if(t!=null) {
+				for(SafeOrganization p:t.getChildren()) {
+					String name = ((SafePerson)p).getName();
+					if(teamer.equals(name)) {
+						needDelete=(SafePerson) p;
+						break;
+						
+					}
+				}
+			}
+		
+			t.remove(needDelete);
+		}
+		show();
+	}
+	
+	public String consistentformatTree() {
 		String organizationStr ="";
 		ArrayList<String> teamStr=new ArrayList<>();
 		HashMap<String, ArrayList<String>> treeMap = new HashMap<>();
@@ -183,6 +252,68 @@ public class ConsistentController  implements Initializable{
 		
 			for(Organization person:team.getChildren()) {
 				String personName = ((Person)person).getName();
+				teamerStr.add(personName);
+			}
+			treeMap.put(teamName, teamerStr);
+			
+		}
+		String teamTree = "";
+		for(int i=0;i<teamStr.size();i++) {
+				String teamName = teamStr.get(i);
+				if(i==0) {
+					teamTree+="|-"+teamName+"---";
+
+				}
+				else {
+					String formatStr="";
+					for(int k=0;k<organizationStr.length();k++) {
+						formatStr+=" ";
+					}
+					teamTree+="\n"+formatStr+"|-"+teamName+"---";
+
+				}
+				ArrayList<String> teamers = treeMap.get(teamName);
+				String teamerTree = "";
+				int j=0;
+				for(String personName:teamers) {
+					if(j==0) {
+					
+					}	
+				
+					else {
+						int formatleng = teamName.length()+organizationStr.length()+5;
+						for(int k=0;k<formatleng;k++){
+							teamerTree+=" ";
+							
+						}
+
+					}
+					j+=1;
+					teamerTree+="|-"+personName+"\n";
+					
+				}
+				teamTree+=teamerTree;
+			}
+		return organizationStr+teamTree;
+	}
+	public String safeformatTree() {
+		String organizationStr ="";
+		ArrayList<String> teamStr=new ArrayList<>();
+		HashMap<String, ArrayList<String>> treeMap = new HashMap<>();
+		String organizationName =((SafeTeam)this.safeorganization).getName();
+		HashSet<SafeOrganization> teams = ((SafeTeam)this.safeorganization).getChildren();
+		Iterator<SafeOrganization> teamsIterator = teams.iterator();
+		organizationStr =organizationStr+((Team)this.organization).getTeamName()+"--";
+
+		while(teamsIterator.hasNext()) {
+			ArrayList<String> teamerStr=new ArrayList<>();
+
+			SafeTeam team  = (SafeTeam) teamsIterator.next();
+			String teamName = team.getName();
+			teamStr.add(teamName);
+		
+			for(SafeOrganization person:team.getChildren()) {
+				String personName = ((SafePerson)person).getName();
 				teamerStr.add(personName);
 			}
 			treeMap.put(teamName, teamerStr);
@@ -224,10 +355,7 @@ public class ConsistentController  implements Initializable{
 				}
 				teamTree+=teamerTree;
 			}
-		
-		System.out.println(organizationStr+teamTree);
-		
+		return organizationStr+teamTree;
 	}
-
 
 }
