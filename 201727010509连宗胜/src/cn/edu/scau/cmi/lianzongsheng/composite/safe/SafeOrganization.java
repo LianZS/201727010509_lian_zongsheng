@@ -1,5 +1,8 @@
-package cn.edu.scau.cmi.lianzongsheng.safe;
+package cn.edu.scau.cmi.lianzongsheng.composite.safe;
 
-public class SafeComponent {
+public abstract class SafeOrganization {
+	SafeOrganization getParent() {
+	return null;
+		}
 
 }

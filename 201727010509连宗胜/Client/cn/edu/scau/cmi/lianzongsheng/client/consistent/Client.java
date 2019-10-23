@@ -9,7 +9,7 @@ public class Client extends Application{
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Pane pane = FXMLLoader.load(getClass().getResource("/cn/edu/scau/cmi/lianzongsheng/consistent/View.fxml"));
+			Pane pane = FXMLLoader.load(getClass().getResource("/cn/edu/scau/cmi/lianzongsheng/composite/consistent/View.fxml"));
 			Scene scene = new Scene(pane);
 			primaryStage.setScene(scene);
 			primaryStage.show();
