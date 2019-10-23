@@ -199,11 +199,9 @@ public class ConsistentController  implements Initializable{
 				Person needDelete=null;
 				for(Organization p:t.getChildren()) {
 					String name = ((Person)p).getName();
-					System.out.println(name);
 
 					if(teamer.equals(name)) {
 						needDelete=(Person) p;
-						System.out.println("ok");
 
 						break;
 							
