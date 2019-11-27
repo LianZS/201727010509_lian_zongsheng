@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.dao.teacherDao">
+
+    <!--查询所有-->
+    <!--resultType用来指定封装类-->
+    <select id="getAll" resultType="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.domain.Teacher">
+        select * from teacher
+    </select>
+    <!--插入一组数据-->
+    <insert id="add" parameterType="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.domain.Teacher">
+        insert into teacher(id,name) values (#{id},#{name})
+    </insert>
+    <!--修改一组数据-->
+    <update id="update" parameterType="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.domain.Teacher">
+        update teacher set name=#{name} where id=#{id}
+    </update>
+    <!-- 删除一组数据-->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from teacher where id=#{id}
+    </delete>
+</mapper>

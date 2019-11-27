@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="913.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.client.mybatisController">
+   <children>
+      <Pane layoutX="51.0" layoutY="35.0" prefHeight="204.0" prefWidth="287.0">
+         <children>
+            <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学号：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="student_name" layoutX="99.0" layoutY="52.0" prefHeight="30.0" prefWidth="167.0" />
+            <TextField fx:id="student_id" layoutX="99.0" layoutY="96.0" prefHeight="30.0" prefWidth="167.0" />
+            <Text layoutX="97.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学生" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
+            <Button layoutX="108.0" layoutY="135.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="30.0" prefWidth="71.0" text="添加" />
+            <Button layoutX="195.0" layoutY="135.0" mnemonicParsing="false" onAction="#updateStudent" prefHeight="30.0" prefWidth="71.0" text="修改" />
+         </children>
+      </Pane>
+      <Pane layoutX="51.0" layoutY="239.0" prefHeight="204.0" prefWidth="287.0">
+         <children>
+            <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工号：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="teacher_name" layoutX="99.0" layoutY="52.0" prefHeight="30.0" prefWidth="167.0" />
+            <TextField fx:id="teacher_id" layoutX="99.0" layoutY="96.0" prefHeight="30.0" prefWidth="167.0" />
+            <Text layoutX="97.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教师" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
+            <Button layoutX="108.0" layoutY="135.0" mnemonicParsing="false" onAction="#addTeacher" prefHeight="30.0" prefWidth="71.0" text="添加" />
+            <Button layoutX="195.0" layoutY="135.0" mnemonicParsing="false" onAction="#updateTeacher" prefHeight="30.0" prefWidth="71.0" text="修改" />
+         </children>
+      </Pane>
+      <Pane layoutX="51.0" layoutY="443.0" prefHeight="169.0" prefWidth="287.0">
+         <children>
+            <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学号：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工号：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="relation_sid" layoutX="99.0" layoutY="52.0" prefHeight="30.0" prefWidth="167.0" />
+            <TextField fx:id="relation_tid" layoutX="99.0" layoutY="96.0" prefHeight="30.0" prefWidth="167.0" />
+            <Text layoutX="97.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="关系" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
+            <Button layoutX="108.0" layoutY="143.0" mnemonicParsing="false" onAction="#addAdvisor" prefHeight="30.0" prefWidth="71.0" text="添加" />
+            <Button layoutX="190.0" layoutY="143.0" mnemonicParsing="false" onAction="#updateAdvisor" prefHeight="30.0" prefWidth="71.0" text="修改" />
+         </children>
+      </Pane>
+      <TextArea fx:id="information" layoutX="44.0" layoutY="673.0" prefHeight="200.0" prefWidth="681.0" />
+      <Button fx:id="allStudent" layoutX="44.0" layoutY="643.0" mnemonicParsing="false" onAction="#allStudent" prefHeight="30.0" prefWidth="218.0" text="显示所有学生" />
+      <Button fx:id="allTeacher" layoutX="262.0" layoutY="643.0" mnemonicParsing="false" onAction="#allTeacher" prefHeight="30.0" prefWidth="218.0" text="显示所有教师" />
+      <Button fx:id="allRelation" layoutX="480.0" layoutY="643.0" mnemonicParsing="false" onAction="#allRelation" prefHeight="30.0" prefWidth="245.0" text="显示所有关系" />
+      <Pane layoutX="438.0" layoutY="35.0" prefHeight="204.0" prefWidth="287.0">
+         <children>
+            <Text layoutX="14.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学号：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="student_id1" layoutX="99.0" layoutY="96.0" prefHeight="30.0" prefWidth="167.0" />
+            <Text layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学生" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
+            <Button layoutX="195.0" layoutY="135.0" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="30.0" prefWidth="71.0" text="删除" />
+         </children>
+      </Pane>
+      <Pane layoutX="438.0" layoutY="239.0" prefHeight="204.0" prefWidth="287.0">
+         <children>
+            <Text layoutX="14.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工号：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="teacher_id1" layoutX="99.0" layoutY="96.0" prefHeight="30.0" prefWidth="167.0" />
+            <Text layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教师" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
+            <Button layoutX="195.0" layoutY="135.0" mnemonicParsing="false" onAction="#deleteTeacher" prefHeight="30.0" prefWidth="71.0" text="删除" />
+         </children>
+      </Pane>
+      <Pane layoutX="438.0" layoutY="443.0" prefHeight="169.0" prefWidth="287.0">
+         <children>
+            <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学号：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工号：" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField fx:id="relation_sid1" layoutX="99.0" layoutY="52.0" prefHeight="30.0" prefWidth="167.0" />
+            <TextField fx:id="relation_tid1" layoutX="99.0" layoutY="96.0" prefHeight="30.0" prefWidth="167.0" />
+            <Text layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="关系" wrappingWidth="93.30029296875">
+               <font>
+                  <Font size="39.0" />
+               </font>
+            </Text>
+            <Button layoutX="190.0" layoutY="143.0" mnemonicParsing="false" onAction="#deleteAdvisor" prefHeight="30.0" prefWidth="71.0" text="删除" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

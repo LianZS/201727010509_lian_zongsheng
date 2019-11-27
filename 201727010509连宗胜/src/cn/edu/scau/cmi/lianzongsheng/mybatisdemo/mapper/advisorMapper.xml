@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.dao.advisorDao">
+
+    <select id="getAll" resultType="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.domain.Advisor">
+        select * from advisor
+    </select>
+
+    <insert id="add" parameterType="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.domain.Advisor">
+        insert into advisor(student_id,teacher_id) values (#{student_id},#{teacher_id})
+    </insert>
+
+    <update id="update" parameterType="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.domain.Advisor">
+        update advisor set student_id = #{student_id},teacher_id = #{teacher_id} where student_id = #{student_id} or teacher_id = #{teacher_id}
+    </update>
+
+    <delete id="delete" parameterType="cn.edu.scau.cmi.lianzongsheng.mybatisdemo.domain.Advisor">
+        delete from advisor where student_id = #{student_id} or teacher_id = #{teacher_id}
+    </delete>
+</mapper>
