@@ -1,20 +1,20 @@
 package cn.edu.scau.cmi.lianzongsheng.adapter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class SortUtil {
-	public static ArrayList<Student> sortList(ArrayList<Student> stuList) {
-		for(int i=0;i<stuList.size()-1;i++) {
-			for(int j=i+1;j<stuList.size();j++) {
-				if(stuList.get(i).stuID>stuList.get(j).stuID) {
-					Student temp=stuList.get(i);
-					stuList.set(i, stuList.get(j));
-					stuList.set(j, temp);
+	int tmp, a, b;
+	public void sortInt(List<Integer> intList){
+		for(int i = 0; i < intList.size() - 1; i++) {
+			for(int j = 0; j < intList.size() - i - 1; j++) {
+				a = intList.get(j);
+				b = intList.get(j + 1);
+				if(a > b) {
+					tmp = a;
+					intList.set(j, b);
+					intList.set(j + 1, a);
 				}
 			}
-			
 		}
-		return stuList;
 	}
-
 }

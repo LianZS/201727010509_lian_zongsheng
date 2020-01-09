@@ -1,9 +1,9 @@
 package cn.edu.scau.cmi.lianzongsheng.interProgramming;
 
-public class UndergraduateStudent extends Student{
+public class UndergraduateStudent implements Student{
 	@Override
-	public void learning() {
-		System.out.println("007做科研");
+	public String learning() {
+		return "007做科研";
 	}
 
 	

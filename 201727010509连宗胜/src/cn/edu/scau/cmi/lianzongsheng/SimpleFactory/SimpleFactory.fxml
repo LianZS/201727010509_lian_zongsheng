@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="497.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.scau.cmi.lianzongsheng.SimpleFactory.SimpleFactoryController">
+   <children>
+      <Text layoutX="38.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入选择生产的肉类" wrappingWidth="261.30029296875">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <MenuButton fx:id="fmButton" alignment="CENTER" layoutX="321.0" layoutY="45.0" mnemonicParsing="false" onAction="#select" prefHeight="33.0" prefWidth="71.0" text="肉类">
+        <items>
+          <MenuItem id="pork" fx:id="porkitem" mnemonicParsing="false" onAction="#selectPork" text="猪肉" />
+          <MenuItem id="beef" fx:id="beefitem" mnemonicParsing="false" onAction="#selectBeef" text="牛肉" />
+            <MenuItem id="chicken" fx:id="chickenitem" mnemonicParsing="false" onAction="#selectChicken" text="鸡肉" />
+        </items>
+      </MenuButton>
+      <TextArea fx:id="fmArea" layoutX="39.0" layoutY="96.0" prefHeight="249.0" prefWidth="420.0" />
+      <Button layoutX="38.0" layoutY="356.0" mnemonicParsing="false" onAction="#back" text="返回" />
+   </children>
+</AnchorPane>

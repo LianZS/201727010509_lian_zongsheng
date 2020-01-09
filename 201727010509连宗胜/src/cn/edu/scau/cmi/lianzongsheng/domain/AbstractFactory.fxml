@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="535.0" prefWidth="502.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.scau.cmi.lianzongsheng.domain.AbstractFactoryController">
+   <children>
+      <Text layoutX="32.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入选择生产的肉类" wrappingWidth="267.30029296875">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <MenuButton fx:id="afBrand" alignment="CENTER" layoutX="244.0" layoutY="100.0" mnemonicParsing="false" onAction="#selectBrand" prefHeight="33.0" prefWidth="104.0" text="选择品牌">
+        <items>
+          <MenuItem id="pork" fx:id="afWens" mnemonicParsing="false" onAction="#selectWens" text="温氏集团" />
+          <MenuItem id="beef" fx:id="afAonong" mnemonicParsing="false" onAction="#selectAonong" text="傲农生物" />
+            <MenuItem id="chicken" fx:id="afTianbang" mnemonicParsing="false" onAction="#selectTianbang" text="天邦股份" />
+        </items>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </MenuButton>
+      <TextArea fx:id="fmArea" layoutX="44.0" layoutY="192.0" prefHeight="286.0" prefWidth="414.0" />
+      <TextField fx:id="factoryText" layoutX="44.0" layoutY="101.0" prefHeight="30.0" prefWidth="165.0" />
+      <TextField fx:id="meatText" layoutX="44.0" layoutY="146.0" prefHeight="30.0" prefWidth="165.0" />
+      <MenuButton fx:id="afMeat" alignment="CENTER" layoutX="244.0" layoutY="145.0" mnemonicParsing="false" onAction="#selectMeat" prefHeight="33.0" prefWidth="104.0" text="选择肉类">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <items>
+            <MenuItem id="pork" fx:id="afPork" mnemonicParsing="false" onAction="#selectPork" text="猪肉" />
+            <MenuItem id="beef" fx:id="afBeef" mnemonicParsing="false" onAction="#selectBeef" text="牛肉" />
+            <MenuItem id="chicken" fx:id="afChicken" mnemonicParsing="false" onAction="#selectChicken" text="鸡肉" />
+         </items>
+      </MenuButton>
+      <Button layoutX="44.0" layoutY="491.0" mnemonicParsing="false" onAction="#back" text="返回" />
+   </children>
+</AnchorPane>

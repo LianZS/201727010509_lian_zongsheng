@@ -1,14 +1,23 @@
 package cn.edu.scau.cmi.lianzongsheng.adapter;
 
-import java.util.ArrayList;
-
 public class Student {
-	public int stuID;
-	public String name;
-	public static ArrayList<Student> stuList =new ArrayList<>();
-	public Student(int stuid,String name) {
-		this.stuID=stuid;
-		this.name=name;
+	public int studentId;
+	public String studentName;
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 
 }
